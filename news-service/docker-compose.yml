@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    env_file:
+      - .env
+    container_name: mysqldb
+    volumes:
+      - newsread:/var/lib/mysql
+
+  news:
+    build: .
+    ports:
+      - 80:5000
+    container_name: news
+    environment:
+      FLASK_APP: run.py
+    env_file:
+      - application/.env
+    depends_on:
+      - mysqldb
+
+volumes:
+  newsread:
