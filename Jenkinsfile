@@ -43,7 +43,7 @@ pipeline {
         stage('Push Image To Dockerhub') {
             steps {
                     script{
-                        withDockerRegistry(credentialsId: 'DockerHub-Creds'
+                        withDockerRegistry(credentialsId: 'DockerHub-Creds')
                         sh 'docker push kelvinskell/newsread-customize'  
                         sh 'docker push kelvinskell/newsread-news'
                 }
