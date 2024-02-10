@@ -44,7 +44,8 @@ pipeline {
             steps {
                     script{
                         withDockerRegistry(credentialsId: 'DockerHub-Creds'
-                        sh 'docker push kelvinskell/newsread-customize && docker push kelvinskell/newsread-news'
+                        sh 'docker push kelvinskell/newsread-customize'  
+                        sh 'docker push kelvinskell/newsread-news'
                 }
             }
                  // script{
