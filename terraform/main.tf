@@ -29,7 +29,7 @@ dynamic "ingress" {
 
 # Create EC2 Instance
 resource "aws_instance" "jenkins_server" {
-  ami           = "ami-0dfcb1ef8550277af"
+  ami           = var.ami
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.jenkins_rules.id]
   user_data = file("tools-install.sh")
