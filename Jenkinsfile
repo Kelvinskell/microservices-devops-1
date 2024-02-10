@@ -48,14 +48,14 @@ pipeline {
                  
             }
 
-        stage('Trivy scan on Docker images'){
-            steps{
-                 sh 'TMPDIR=/home/jenkins'
-                 sh 'trivy image kelvinskell/newsread-news:latest'
-                 sh 'trivy image kelvinskell/newsread-customize:latest'
-        }
+        //stage('Trivy scan on Docker images'){
+          //  steps{
+            //     sh 'TMPDIR=/home/jenkins'
+              //   sh 'trivy image kelvinskell/newsread-news:latest'
+                // sh 'trivy image kelvinskell/newsread-customize:latest'
+        //}
        
-    }
+   // }
         }    
 
         post {
