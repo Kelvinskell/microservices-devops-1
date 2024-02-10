@@ -40,16 +40,12 @@ pipeline {
         stage('Push Image To Dockerhub') {
             steps {
                     script{
-                        withDockerRegistry(credentialsId: 'DockerHub-Creds')
-                        sh 'docker push kelvinskell/newsread-customize'  
-                        sh 'docker push kelvinskell/newsread-news'
-                }
+                        withCredentials([string(credentialsId: 'DockerHubPass', variable: 'DockerHubPass')]) {
+                        sh 'docker login -u kelvinskell --password ${DockerHubPass}' }
+                        sh 'docker push kelvinskell/newsread-news && docker push kelvinskell/newsread-customize'
+               }
             }
-                 // script{
-                 //   withCredentials([string(credentialsId: 'DockerHubPass', variable: 'DockerHubpass')]) {
-                 //   sh 'docker login -u kelvinskell --password ${DockerHubpass}' }
-                  //  sh 'docker push kelvinskell/newsread-news && docker push kelvinskell/newsread-customize'
-               // }
+                 
             }
 
         stage('Trivy scan on Docker image'){
