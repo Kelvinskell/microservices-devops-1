@@ -40,7 +40,7 @@ pipeline {
         stage('Push Image To Dockerhub') {
             steps {
                     script{
-                        withCredentials([string(credentialsId: 'DockerHub-Creds', variable: 'DockerHubPass')]) {
+                        withCredentials([string(credentialsId: 'DockerHubPass', variable: 'DockerHubPass')]) {
                         sh 'docker login -u kelvinskell --password ${DockerHubPass}' }
                         sh 'docker push kelvinskell/newsread-news && docker push kelvinskell/newsread-customize'
                }
