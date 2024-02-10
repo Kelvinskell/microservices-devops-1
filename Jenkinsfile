@@ -21,7 +21,7 @@ pipeline {
       }
     }
 
-        stage('Build Docker Image') {
+        stage('Build Docker Images') {
             steps {
                 script{
                     sh 'docker build -t kelvinskell/newsread-customize customize-service/'
@@ -37,7 +37,7 @@ pipeline {
                 }
             }
         }
-        stage('Push Image To Dockerhub') {
+        stage('Push Images To Dockerhub') {
             steps {
                     script{
                         withCredentials([string(credentialsId: 'DockerHubPass', variable: 'DockerHubPass')]) {
@@ -48,7 +48,7 @@ pipeline {
                  
             }
 
-        stage('Trivy scan on Docker image'){
+        stage('Trivy scan on Docker images'){
             steps{
                  sh 'trivy image kelvinskell/newsread-news:latest'
                  sh 'trivy image kelvinskell/newsread-customize:latest'
