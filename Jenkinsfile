@@ -64,8 +64,8 @@ pipeline {
         post {
         always {
             // Always executed
-                sh 'docker rm newsread-customize'
-                sh 'docker rm newsread-news'
+                sh 'docker rm news-service'
+                sh 'docker rm customize-service'
         }
         success {
             // on sucessful execution
