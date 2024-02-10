@@ -50,8 +50,8 @@ pipeline {
 
         stage('Trivy scan on Docker image'){
             steps{
-                 sh 'trivy image kelvinskell/newsread-news/new:latest'
-                 sh 'trivy image kelvinskell/newsread-customize/new:latest'
+                 sh 'trivy image kelvinskell/newsread-news:latest'
+                 sh 'trivy image kelvinskell/newsread-customize:latest'
         }
        
     }
