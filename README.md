@@ -6,4 +6,4 @@ This project is the first part of a 2-part project that applies GitOps practices
 
 This first repository contains the application code as well as terraform code for setting up the EC2 instances.
 
-## Read more about this project [here]()
+## Read more about this project [here](https://dev.to/kelvinskell/advanced-end-to-end-devops-project-deploying-a-microservices-app-to-aws-eks-using-terraform-helm-jenkins-and-argocd-part-i-3a53)
